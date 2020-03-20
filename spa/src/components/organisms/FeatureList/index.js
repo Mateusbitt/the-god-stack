@@ -37,7 +37,7 @@ const StyledFeature = styled(Feature)`
 
 const FeatureList = ({ ...props }) => (
   <div {...props}>
-    <StyledHeading>Basic stack</StyledHeading>
+    <StyledHeading>Basic stack Proenca</StyledHeading>
     <Description>
       It includes everything necessary to build a tipical web app with focus on productivity and developer experience.
       <br />

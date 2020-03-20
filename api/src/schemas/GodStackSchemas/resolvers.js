@@ -7,6 +7,8 @@ import MergeUser from './Users/Application/Mutations/MergeUser'
 import ToggleUser from './Users/Application/Mutations/ToggleUser'
 import UserLogin from './Users/Application/Queries/UserLogin'
 import RefreshToken from './Users/Application/Queries/RefreshToken'
+import Movies from './Movies/Application/Queries/Movies'
+import MergeMovie from './Movies/Application/Mutations/MergeMovie'
 
 export const resolvers = {
   Query: {
@@ -15,10 +17,12 @@ export const resolvers = {
     Users,
     UserLogin,
     RefreshToken,
+    Movies,
   },
   Mutation: {
     MergeUser,
     ToggleUser,
+    MergeMovie,
   },
   Date,
   Upload: GraphQLUpload,
