@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 import { render } from 'react-dom'
 import { ApolloProvider } from 'react-apollo'
-import App from 'components/App'
+import App from './components/App'
 import { client } from './apolloConfig'
 
 const renderApp = () => (
@@ -13,4 +13,3 @@ const renderApp = () => (
 )
 
 render(renderApp(), document.getElementById('app'))
-// export default hot(renderApp)
