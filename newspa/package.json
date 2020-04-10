@@ -5,8 +5,24 @@
   "main": "src/index.jsx",
   "author": "Breno Mazieiro e Raphael Peruzzolo",
   "license": "MIT",
+  "jest": {
+    "moduleDirectories": [
+      "src",
+      "node_modules"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/scripts/jest/fileMock.js",
+      "^(components)$": "<rootDir>/scripts/jest/componentsMock.js",
+      "^(mutations)$": "<rootDir>/scripts/jest/actionsMock.js"
+    },
+    "setupFiles": [
+      "<rootDir>/scripts/jest/setupTests.js"
+    ]
+  },
   "scripts": {
-    "start": "webpack-dev-server --mode development --host 0.0.0.0 --port 80"
+    "start": "webpack-dev-server --mode development --host 0.0.0.0 --port 80",
+    "test": "jest",
+    "lint": "eslint src scripts webpack.config.js"
   },
   "dependencies": {
     "apollo-cache-inmemory": "^1.6.5",
@@ -36,6 +52,9 @@
     "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
+    "babel-jest": "^25.3.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-import-resolver-webpack": "^0.12.1",
@@ -43,6 +62,8 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.1",
+    "jest": "^25.3.0",
+    "react-test-renderer": "^16.13.1",
     "webpack-dev-server": "^3.10.3"
   }
 }

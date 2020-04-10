@@ -14,7 +14,7 @@ const configFileContent = projectVars.map((entry) => {
   if (envEntry === 'false') envEntry = false
 
   return envEntry ? `export const ${entry} = '${envEntry}'` : null
-}).filter(entry => entry)
+}).filter((entry) => entry)
 
 if (configFileContent.length) {
   fs.writeFileSync('src/environment.js', `${configFileContent.join('\n')}\n`)
