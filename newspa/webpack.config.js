@@ -12,6 +12,7 @@ module.exports = {
       '.thegodstack.com',
     ],
   },
+  devtool: "source-map",
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
     modules: [].concat('src', ['node_modules']),
