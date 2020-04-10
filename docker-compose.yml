@@ -102,6 +102,29 @@ services:
       main:
         aliases:
           - ${SPA_URL}
+  
+  spa2:
+    container_name: ${SPA_URL2}
+    image: thegodstack-nodejs-knex
+    restart: always
+    ports:
+      - ${CONTAINER_PORT}
+    volumes:
+      - "./newspa:/opt/app-root/src:rw"
+    environment:
+      VIRTUAL_HOST: '${SPA_URL2}'
+      VIRTUAL_PORT: ${CONTAINER_PORT}
+      PORT: ${CONTAINER_PORT}
+      APP_ENV: "${ENVIRONMENT}"
+      ENV_ALIAS: "${ENVIRONMENT}"
+      NODE_ENV: "${ENVIRONMENT}"
+      API_URL: 'http://${API_URL}/'
+      WS_URL: 'ws://${API_URL}/graphql'
+    command: ['./wait-for-it.sh', '-t', '0', '${API_URL}:${CONTAINER_PORT}', '--', '.s2i/bin/assemble']
+    networks:
+      main:
+        aliases:
+          - ${SPA_URL2}
 
 networks:
   main:

@@ -6,7 +6,7 @@
   "author": "Breno Mazieiro e Raphael Peruzzolo",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --mode development"
+    "start": "webpack-dev-server --mode development --host 0.0.0.0 --port 80"
   },
   "dependencies": {
     "babel-loader": "^8.1.0",
