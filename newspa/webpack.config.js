@@ -8,7 +8,6 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
-    // contentBase: 'public',
     allowedHosts: [
       '.thegodstack.com',
     ],

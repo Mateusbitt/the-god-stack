@@ -5,7 +5,7 @@ import { getMainDefinition } from 'apollo-utilities'
 import { createUploadLink } from 'apollo-upload-client'
 import { setContext } from 'apollo-link-context'
 import { InMemoryCache } from 'apollo-cache-inmemory'
-import { API_URL, WS_URL } from './environment'
+import { API_URL, WS_URL } from 'environment'
 
 const uri = API_URL
 const cache = new InMemoryCache()
