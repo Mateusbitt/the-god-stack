@@ -4,7 +4,10 @@ import {
   Route,
 } from 'react-router-dom'
 import {
-  HomePage, LoginPage, NotFoundPage, Block,
+  HomePage,
+  LoginPage,
+  NotFoundPage,
+  Block,
 } from 'components'
 
 function App() {
