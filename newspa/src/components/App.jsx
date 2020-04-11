@@ -1,25 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import styled from 'styled-components'
 import {
-  Routes,
-  Route,
-} from 'react-router-dom'
-import {
-  HomePage,
-  LoginPage,
-  NotFoundPage,
   Block,
 } from 'components'
+import { ThemeContext } from 'styles'
+import Routes from './Routes'
+
+const Wrapper = styled(Block)`
+  background-color: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.text};
+  min-height: 100vh;
+  font-family: sans-serif
+`
 
 function App() {
+  const { theme, toggleTheme } = useContext(ThemeContext)
   return (
-    <Block>
-      <h1>Welcome</h1>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </Block>
+    <Wrapper theme={theme}>
+      <Routes theme={theme} toggleTheme={toggleTheme} />
+    </Wrapper>
   )
 }
 
