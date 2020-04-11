@@ -120,6 +120,7 @@ services:
       NODE_ENV: "${ENVIRONMENT}"
       API_URL: 'http://${API_URL}/'
       WS_URL: 'ws://${API_URL}/graphql'
+      CLIENT: ${CLIENT}
     command: ['./wait-for-it.sh', '-t', '0', '${API_URL}:${CONTAINER_PORT}', '--', '.s2i/bin/assemble']
     networks:
       main:

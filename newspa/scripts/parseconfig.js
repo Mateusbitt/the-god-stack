@@ -5,6 +5,7 @@ const fs = require('fs')
 const projectVars = [
   'API_URL',
   'WS_URL',
+  'CLIENT',
 ]
 
 const configFileContent = projectVars.map((entry) => {
@@ -17,5 +18,5 @@ const configFileContent = projectVars.map((entry) => {
 }).filter((entry) => entry)
 
 if (configFileContent.length) {
-  fs.writeFileSync('src/environment.js', `${configFileContent.join('\n')}\n`)
+  fs.writeFileSync('src/environment/index.js', `${configFileContent.join('\n')}\n`)
 }
