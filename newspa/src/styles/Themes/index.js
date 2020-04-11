@@ -1,6 +1,6 @@
 import defaultTheme from './clients/defaultTheme'
 
-let themes = {}
+const themes = {}
 themes.default = defaultTheme
 
 export default themes

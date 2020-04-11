@@ -8,7 +8,7 @@ const Block = ({ children, ...props }) => {
 }
 
 Block.propTypes = {
-  children: PropTypes.any.isRequired,
+  children: PropTypes.any,
 }
 
 export default Block
