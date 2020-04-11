@@ -8,9 +8,11 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
+    // contentBase: 'public',
     allowedHosts: [
       '.thegodstack.com',
     ],
+    historyApiFallback: true,
   },
   devtool: 'source-map',
   resolve: {

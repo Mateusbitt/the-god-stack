@@ -8,13 +8,10 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { API_URL, WS_URL } from './environment'
 
 const uri = API_URL
-// const cache = new InMemoryCache()
+const cache = new InMemoryCache()
 
 const authLink = setContext((_, { headers }) => {
-// get the authentication token from local storage if it exists
   const token = localStorage.getItem('token')
-  // return the headers to the context so httpLink can read them
-  // console.log('token:', token)
   return {
     headers: {
       ...headers,
@@ -45,5 +42,5 @@ export const client = new ApolloClient({
     wsLink,
     httpLink,
   ),
-  cache: new InMemoryCache(),
+  cache,
 })
