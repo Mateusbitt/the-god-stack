@@ -12,7 +12,7 @@ const resources = {
   },
 }
 
-const lng = 'enUS'
+const lng = JSON.parse(localStorage.getItem('language')) || 'enUS'
 
 i18n
   .use(initReactI18next)
