@@ -7,7 +7,7 @@ const usePersistedState = (key, initialValue) => {
     if (storageValue) {
       return storageValue
     }
-    return initialValue
+    return initialValue || ''
   })
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const usePersistedState = (key, initialValue) => {
 
 usePersistedState.propTypes = {
   key: PropTypes.string.isRequired,
-  initialValue: PropTypes.string.isRequired,
+  initialValue: PropTypes.string,
 }
 
 export default usePersistedState
