@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import { Block } from 'components'
-import { usePersistedState } from 'utils'
+import { usePersistedState } from 'hooks'
 
 const StyledBlock = styled(Block)`
   padding: 0;
@@ -13,7 +13,7 @@ const StyledBlock = styled(Block)`
 
 const HomePage = ({ toggleTheme, t }) => {
   const { i18n } = useTranslation()
-  const [setLang] = usePersistedState('language', JSON.parse(localStorage.getItem('language')) || 'enUS')
+  const [lang, setLang] = usePersistedState('language', JSON.parse(localStorage.getItem('language')) || 'enUS')
   const [theme, setTheme] = usePersistedState('theme', JSON.parse(localStorage.getItem('theme')) || 'light')
 
   const changeTheme = () => {
