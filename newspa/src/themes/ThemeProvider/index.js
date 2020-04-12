@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { Themes, ThemeContext } from 'styles'
+import { Themes, ThemeContext } from 'themes'
 import { CLIENT } from 'environment'
 
 const ThemeProvider = ({ children }) => {
-  const [themeType, setThemeType] = useState('light')
+  const [themeType, setThemeType] = useState(JSON.parse(localStorage.getItem('theme')) || 'light')
   const theme = Themes[CLIENT] ? Themes[CLIENT][themeType] : Themes.default[themeType]
 
   const toggleTheme = () => {
