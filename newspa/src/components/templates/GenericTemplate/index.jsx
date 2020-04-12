@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   padding-top: 3.75rem;
   min-height: 100vh;
   box-sizing: border-box;
+  background-image: ${({ theme }) => `linear-gradient(${theme.colors.background[0]}, ${theme.colors.background[1]}, ${theme.colors.background[2]})`} ;
 `
 
 const Content = styled.section`
@@ -17,8 +18,7 @@ const Content = styled.section`
   max-width: 920px;
 `
 
-const GenericTemplate = ({ children, theme, ...props }) => {
-  console.log({ p: theme })
+const GenericTemplate = ({ children, ...props }) => {
   return (
     <Wrapper {...props}>
       <Content>{children}</Content>
@@ -28,7 +28,6 @@ const GenericTemplate = ({ children, theme, ...props }) => {
 
 GenericTemplate.propTypes = {
   children: PropTypes.any.isRequired,
-  theme: PropTypes.object.isRequired,
 }
 
 export default GenericTemplate

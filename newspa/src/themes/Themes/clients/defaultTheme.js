@@ -12,9 +12,9 @@ const genericDesign = {
 const darkLight = {
   dark: {
     colors: {
-      primary: '#CCCCCC',
-      secundary: '#7F7F7F',
-      background: '#333333',
+      primary: ['#1D223B', '#554971', '#8C6ff1', '#8AC6D0', '#B8F3FF'],
+      secundary: ['#FABB61', '#FC9777', '#7A606F', '#5BA7D9','#56E39F'],
+      background: ['#1e243d', '#16192f', '#291e38'],
       text: '#F2F2F2',
     },
   },
@@ -22,7 +22,7 @@ const darkLight = {
     colors: {
       primary: '#7F7F7F',
       secundary: '#CCCCCC',
-      background: '#F2F2F2',
+      background: ['#CCCCCC', '#EEEEEE', '#BDA1EC'],
       text: '#33333',
     },
   },
