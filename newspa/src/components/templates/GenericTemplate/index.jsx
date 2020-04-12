@@ -6,22 +6,24 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 3.75rem;
-  min-height: 100vh;
   box-sizing: border-box;
+  min-height: 100vh;
   background-image: ${({ theme }) => `linear-gradient(${theme.colors.background[0]}, ${theme.colors.background[1]}, ${theme.colors.background[2]})`} ;
+  color: ${({ theme }) => theme.colors.text[0]};
+  font-family: ${({ theme }) => theme.fonts.primary};
 `
 
 const Content = styled.section`
+  max-width: ${({ theme }) => theme.sizes.maxWidth};
+  margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
-  margin: 2rem auto;
-  max-width: 920px;
 `
 
 const GenericTemplate = ({ children, ...props }) => {
   return (
     <Wrapper {...props}>
-      <Content>{children}</Content>
+      <Content {...props}>{children}</Content>
     </Wrapper>
   )
 }

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import { usePersistedState } from 'hooks'
-import { Block, GenericTemplate } from 'components'
+import { GenericTemplate, Block, Button } from 'components'
 
 const StyledBlock = styled(Block)`
   padding: 0;
@@ -33,12 +33,12 @@ const HomePage = ({ toggleTheme, t, ...props }) => {
         <Link to="/login">Login</Link>
       </StyledBlock>
       <StyledBlock>
-        <button
+        <Button
           type="button"
           onClick={() => changeTheme()}
         >
           {t('pages.HomePage.changeTheme')}
-        </button>
+        </Button>
       </StyledBlock>
       <StyledBlock>
         <button
