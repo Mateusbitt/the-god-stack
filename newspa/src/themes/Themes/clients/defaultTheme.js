@@ -1,4 +1,15 @@
-export default {
+const genericDesign = {
+  fonts: {
+    primary: 'Helvetica Neue, Helvetica, Roboto, sans-serif',
+    pre: 'Consolas, Liberation Mono, Menlo, Courier, monospace',
+    quote: 'Georgia, serif',
+  },
+  sizes: {
+    maxWidth: '1100px',
+  },
+}
+
+const darkLight = {
   dark: {
     colors: {
       primary: '#CCCCCC',
@@ -16,3 +27,16 @@ export default {
     },
   },
 }
+
+export default (
+  {
+    dark: {
+      ...darkLight.dark,
+      ...genericDesign,
+    },
+    light: {
+      ...darkLight.light,
+      ...genericDesign,
+    },
+  }
+)
