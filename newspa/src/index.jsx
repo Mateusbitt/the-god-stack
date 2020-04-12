@@ -3,6 +3,7 @@ import { render } from 'react-dom'
 import { ApolloProvider } from 'react-apollo'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { ThemeProvider, GlobalStyle } from 'styles'
+import './i18n'
 import App from './components/App'
 import { client } from './apolloConfig'
 
