@@ -8,10 +8,7 @@ import { useTranslation } from 'react-i18next'
 import Routes from './Routes'
 
 const Wrapper = styled(Block)`
-  background-color: ${({ theme }) => theme.colors.background};
-  color: ${({ theme }) => theme.colors.text};
   min-height: 100vh;
-  font-family: ${({ theme }) => theme.fonts.primary};
 `
 
 function App() {
