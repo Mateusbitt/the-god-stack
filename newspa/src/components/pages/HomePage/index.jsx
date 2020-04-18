@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import { usePersistedState } from 'hooks'
-import { GenericTemplate, Block, Button } from 'components'
+import {
+  GenericTemplate, Block, Button, Link, Input, Row, Col,
+} from 'components'
 
 const StyledBlock = styled(Block)`
   padding: 0;
@@ -40,22 +41,30 @@ const HomePage = ({ toggleTheme, t, ...props }) => {
           {t('pages.HomePage.changeTheme')}
         </Button>
       </StyledBlock>
+
+
       <StyledBlock>
-        <button
-          type="button"
-          onClick={() => changeLang('ptBR')}
-        >
-          PT
-        </button>
+        <Input password />
       </StyledBlock>
-      <StyledBlock>
-        <button
-          type="button"
-          onClick={() => changeLang('enUS')}
-        >
-          EN
-        </button>
-      </StyledBlock>
+
+      <Row textalign="center" justifycontent="space-between">
+        <Col textalign="left" sm={3}>
+          <Button
+            type="button"
+            onClick={() => changeLang('ptBR')}
+          >
+            PT
+          </Button>
+        </Col>
+        <Col textalign="right" sm={3}>
+          <Button
+            type="button"
+            onClick={() => changeLang('enUS')}
+          >
+            EN
+          </Button>
+        </Col>
+      </Row>
     </GenericTemplate>
   )
 }
