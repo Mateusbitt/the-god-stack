@@ -6,13 +6,6 @@ import { ThemeContext } from 'themes'
 
 export const fontSize = ({ height }) => `${height / 50}rem`
 
-// export const backgroundColor = ({ transparent, disabled }) => transparent ? 'transparent' : palette(disabled ? 2 : 0)
-
-// export const foregroundColor = ({ transparent, disabled }) => transparent ? palette(disabled ? 2 : 1) : palette('white', 0, true)
-
-// export const hoverBackgroundColor = ({ disabled, transparent }) => !disabled && !transparent && palette(0)
-// export const hoverForegroundColor = ({ disabled, transparent }) => !disabled && transparent && palette(0)
-
 const styles = css`
   display: inline-flex;  
   font-family: ${({ theme }) => theme.fonts.primary};
@@ -20,7 +13,7 @@ const styles = css`
   background-color: ${({ theme }) => theme.colors.primary[0]};
   align-items: center;
   white-space: nowrap;
-  /* font-size: {fontSize}; */
+  font-size: ${fontSize};
   border: 2px solid ${({ transparent, theme }) => transparent ? 'transparent' : theme.colors.primary[3]};
   border-radius: 8px;
   box-sizing: border-box;
@@ -55,7 +48,7 @@ const styles = css`
 `
 
 export const StyledLink = styled(({
-  disabled, transparent, reverse, palette, height, theme, ...props
+  disabled, transparent, reverse, height, theme, ...props
 }) => <Link {...props} />)`${styles}`
 
 export const Anchor = styled.a`${styles}`
@@ -74,7 +67,6 @@ const Button = ({ type, ...props }) => {
 
 Button.propTypes = {
   disabled: PropTypes.bool,
-  palette: PropTypes.string,
   transparent: PropTypes.bool,
   reverse: PropTypes.bool,
   height: PropTypes.number,
@@ -84,9 +76,8 @@ Button.propTypes = {
 }
 
 Button.defaultProps = {
-  palette: 'primary',
   type: 'button',
-  height: 40,
+  height: 50,
 }
 
 export default Button
