@@ -44,7 +44,7 @@ const HomePage = ({ toggleTheme, t, ...props }) => {
 
 
       <StyledBlock>
-        <Input password />
+        <Input type="password" />
       </StyledBlock>
 
       <Row textalign="center" justifycontent="space-between">

@@ -6,19 +6,27 @@ import { Icon } from 'components'
 import { ThemeContext } from 'themes'
 
 export const fontSize = ({ height }) => `${height / 50}rem`
+export const fontFamily = ({ theme }) => theme.fonts.primary
+export const color = ({ theme }) => theme.colors.text[1]
+export const IconColor = ({ theme }) => theme.colors.primary[3]
+export const padding = ({ type }) => type === 'textarea' ? '0.4em' : '0 1em'
+export const height = ({ type }) => type === 'textarea' ? 'auto' : '3em'
+export const backgroundColor = ({ theme }) => theme.colors.text[0]
+export const border = ({ invalid, theme }) => invalid ? theme.colors.actions[3] : 'transparent'
+export const borderColor = ({ theme }) => theme.colors.primary[3]
 
-const styles = css`  
-  font-family: ${({ theme }) => theme.fonts.primary};
-  color: ${({ theme }) => theme.colors.text[1]};
+const styles = css`
+  font-family: ${fontFamily};
+  color: ${color};
   display: inline-block;
   width: 100%;
   padding: 0 1em;
   box-sizing: border-box;
   font-size: ${fontSize};
-  padding: ${({ type }) => type === 'textarea' ? '0.4em' : '0 1em'};
-  height: ${({ type }) => type === 'textarea' ? 'auto' : '3em'};
-  background-color: ${({ theme }) => theme.colors.text[0]};
-  border: 2px solid ${({ invalid, theme }) => invalid ? theme.colors.actions[3] : 'transparent'};
+  padding: ${padding};
+  height: ${height};
+  background-color: ${backgroundColor};
+  border: 2px solid ${border};
   border-radius: 8px;
   margin-top: 5px;
   margin-bottom: 20px;
@@ -26,7 +34,7 @@ const styles = css`
   transition: border-color 250ms ease-out;
 
   &:focus{
-    border-color: ${({ theme }) => theme.colors.primary[3]};
+    border-color: ${borderColor};
   }
 
   &[type=checkbox], &[type=radio] {
@@ -45,7 +53,7 @@ const StyledIcon = styled(Icon)`
   padding-bottom: 0px;
   height: auto;
   margin: 0px;
-  color: ${({ theme }) => theme.colors.primary[3]};
+  color: ${IconColor};
 `
 
 const StyledButton = styled.button`
@@ -65,7 +73,7 @@ export const StyledSelect = styled.select`${styles}`
 export const StyledInput = styled.input`${styles}`
 
 const Input = ({
-  mask, type, password, onChange, ...props
+  mask, type, onChange, ...props
 }) => {
   const { theme } = useContext(ThemeContext)
   const [eye, setEye] = useState(false)
@@ -95,7 +103,7 @@ const Input = ({
       />
     )
   }
-  if (password) {
+  if (type === 'password') {
     const eyeIcon = eye ? <StyledIcon icon="eye" invalid={props.invalid} theme={theme} /> : <StyledIcon icon="eye-not" invalid={props.invalid} theme={theme} />
     const typePassword = eye ? 'text' : 'password'
     return (
@@ -122,7 +130,6 @@ Input.propTypes = {
   invalid: PropTypes.bool,
   placeholder: PropTypes.string,
   autocomplete: PropTypes.string,
-  password: PropTypes.bool,
   mask: PropTypes.arrayOf(PropTypes.any),
   value: PropTypes.string,
   onChange: PropTypes.func,
