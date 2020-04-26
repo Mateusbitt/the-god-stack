@@ -4,6 +4,7 @@ import { configure, addDecorator } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import { setConsoleOptions } from '@storybook/addon-console'
 import { BrowserRouter as Router } from 'react-router-dom'
+/** TODO: This is the line that things are going south */
 import { ThemeProvider, GlobalStyle } from 'themes'
 import App from '../../src/components/App'
 import { client } from '../../src/apolloConfig'
