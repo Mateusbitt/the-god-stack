@@ -1,51 +1,41 @@
 import React, { Suspense } from 'react'
-// import { ApolloProvider } from 'react-apollo'
+import { ApolloProvider } from 'react-apollo'
 import { configure, addDecorator } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import { setConsoleOptions } from '@storybook/addon-console'
 import { BrowserRouter as Router } from 'react-router-dom'
-// import App from '../../src/components/App'
-// import ThemeProvider from '../../src/themes/ThemeProvider'
-// import GlobalStyle from '../../src/themes/GlobalStyle'
-// import { client } from '../../src/apolloConfig'
+import { ThemeProvider, GlobalStyle } from 'themes'
+import App from '../../src/components/App'
+import { client } from '../../src/apolloConfig'
 
+const req = require.context('components', true, /.stories.js$/)
+
+function loadStories() {
+  req.keys().forEach((filename) => req(filename))
+}
 
 setConsoleOptions({
   panelExclude: [],
 })
-const req = require.context('components', true, /.stories.js$/)
-// const req2 = require.context('themes', true, /.js$/)
 
-const loadStories = () => {
-  const x = req.keys().forEach((filename) => {
-    console.log({ r: filename })
-    return req(filename)
-  })
-  // const y = req2.keys().forEach((filename) => {
-  //   console.log({ r2: filename })
-  //   return req2(filename)
-  // })
-  console.log({ x })
-}
-
-// addDecorator(
-//   withInfo({
-//     header: false, // Global configuration for the info addon across all of your stories.
-//   }),
-// )
+addDecorator(
+  withInfo({
+    header: false, // Global configuration for the info addon across all of your stories.
+  }),
+)
 
 addDecorator((story) => (
   <Suspense fallback={<h1>Loading...</h1>}>
-    {/* <ApolloProvider client={client}> */}
-    {/* <ThemeProvider>
+    <ApolloProvider client={client}>
+      <ThemeProvider>
         <GlobalStyle />
         <Router>
-          <App> */}
-    {story()}
-    {/* </App>
+          <App>
+            {story()}
+          </App>
         </Router>
-      </ThemeProvider> */}
-    {/* </ApolloProvider> */}
+      </ThemeProvider>
+    </ApolloProvider>
   </Suspense>
 ))
 
