@@ -1,17 +1,22 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import { Themes } from 'themes'
 import Button, {
   StyledButton,
   Anchor,
   StyledLink,
   fontSize,
-  backgroundColor,
-  foregroundColor,
-  hoverBackgroundColor,
-  hoverForegroundColor,
 } from '.'
 
 const wrap = (props = {}) => shallow(<Button {...props} />)
+
+const mockDark = Themes.default.dark
+jest.mock('react', () => {
+  return {
+    ...jest.requireActual('react'),
+    useContext: () => mockDark,
+  }
+})
 
 it('renders with different combination of props', () => {
   wrap({ disabled: true })
@@ -46,42 +51,6 @@ it('renders Link when to is passed in', () => {
 
 it('execute fontSizeFunction', () => {
   expect(fontSize({ height: 40 })).toBe('0.8rem')
-})
-
-it('execute backgroundColor Function with transparency', () => {
-  expect(backgroundColor({ transparent: true })).toBe('transparent')
-})
-
-it('execute backgroundColor Function  without transparency', () => {
-  expect(backgroundColor({ transparent: false, disabled: false })).toBeInstanceOf(Function)
-})
-
-it('execute backgroundColor Function  without transparency', () => {
-  expect(backgroundColor({ transparent: false, disabled: true })).toBeInstanceOf(Function)
-})
-
-it('execute foregroundColor Function', () => {
-  expect(foregroundColor({ transparent: true, disabled: true })).toBeInstanceOf(Function)
-})
-
-it('execute foregroundColor Function', () => {
-  expect(foregroundColor({ transparent: true, disabled: false })).toBeInstanceOf(Function)
-})
-
-it('execute foregroundColor Function', () => {
-  expect(foregroundColor({ transparent: false })).toBeInstanceOf(Function)
-})
-
-it('execute hoverBackgroundColor Function', () => {
-  expect(hoverBackgroundColor({ transparent: false, disabled: false })).toBeInstanceOf(Function)
-})
-
-it('execute hoverForegroundColor Function', () => {
-  expect(hoverForegroundColor({ transparent: false, disabled: false })).toBe(false)
-})
-
-it('execute hoverForegroundColor Function with transparency', () => {
-  expect(hoverForegroundColor({ transparent: true, disabled: false })).toBeInstanceOf(Function)
 })
 
 it('execute hoverForegroundColor Function with transparency', () => {

@@ -1,8 +1,17 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import { Themes } from 'themes'
 import Link, { StyledNavLink, Anchor } from '.'
 
 const wrap = (props = {}) => shallow(<Link {...props} />)
+
+const mockDark = Themes.default.dark
+jest.mock('react', () => {
+  return {
+    ...jest.requireActual('react'),
+    useContext: () => mockDark,
+  }
+})
 
 it('renders children when passed in', () => {
   const wrapper = wrap({ children: 'test' })

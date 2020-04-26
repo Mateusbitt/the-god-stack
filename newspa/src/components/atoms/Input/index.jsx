@@ -75,6 +75,7 @@ export const StyledInput = styled.input`${styles}`
 const Input = ({
   mask, type, onChange, ...props
 }) => {
+  // console.log(React.useContext(ThemeContext))
   const { theme } = useContext(ThemeContext)
   const [eye, setEye] = useState(false)
   const [value, setValue] = useState('')

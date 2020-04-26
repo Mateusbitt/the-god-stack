@@ -1,11 +1,13 @@
 import React from 'react'
 import { mount, shallow } from 'enzyme'
+import { Themes } from 'themes'
 import GenericTemplate from '.'
+
 
 const wrap = (props = {}) => shallow(<GenericTemplate {...props}>test</GenericTemplate>)
 
 it('mounts', () => {
-  mount(<GenericTemplate>test</GenericTemplate>)
+  mount(<GenericTemplate theme={Themes.default.dark}>test</GenericTemplate>)
 })
 
 it('renders children when passed in', () => {

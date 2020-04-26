@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import { Themes } from 'themes'
 import Input, {
   StyledTextarea,
   StyledSelect,
@@ -8,6 +9,14 @@ import Input, {
 } from '.'
 
 const wrap = (props = {}) => shallow(<Input {...props} />)
+
+const mockDark = Themes.default.dark
+jest.mock('react', () => {
+  return {
+    ...jest.requireActual('react'),
+    useContext: () => mockDark,
+  }
+})
 
 it('renders props when passed in', () => {
   const wrapper = wrap({ type: 'text' })
@@ -30,5 +39,5 @@ it('renders textarea when type is textarea', () => {
 })
 
 it('execute fontSizeFunction', () => {
-  expect(fontSize({ height: 50.5 })).toBe('1rem')
+  expect(fontSize({ height: 50 })).toBe('1rem')
 })
