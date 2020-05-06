@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import { usePersistedState } from 'hooks'
 import {
-  GenericTemplate, Block, Button, Link, Input, Row, Col,
+  GenericTemplate, Block, Button, Link, Input, Row, Col, Select, Option,
 } from 'components'
 
 const StyledBlock = styled(Block)`
@@ -27,6 +27,12 @@ const HomePage = ({ toggleTheme, t, ...props }) => {
     setLang(lang)
   }
 
+  const changeSelect = (ev) => {
+    i18n.changeLanguage(ev.target.value)
+    setLang(ev.target.value)
+  }
+
+
   return (
     <GenericTemplate {...props}>
       <Block>{t('pages.HomePage.home')}</Block>
@@ -47,8 +53,8 @@ const HomePage = ({ toggleTheme, t, ...props }) => {
         <Input type="password" />
       </StyledBlock>
 
-      <Row textalign="center" justifycontent="space-between">
-        <Col textalign="left" sm={3}>
+      <Row justifycontent="space-between">
+        <Col sm={4}>
           <Button
             type="button"
             onClick={() => changeLang('ptBR')}
@@ -56,13 +62,19 @@ const HomePage = ({ toggleTheme, t, ...props }) => {
             PT
           </Button>
         </Col>
-        <Col textalign="right" sm={3}>
+        <Col sm={4}>
           <Button
             type="button"
             onClick={() => changeLang('enUS')}
           >
             EN
           </Button>
+        </Col>
+        <Col sm={2}>
+          <Select transparent onChange={changeSelect}>
+            <Option value="enUS">English</Option>
+            <Option value="ptBR">Português</Option>
+          </Select>
         </Col>
       </Row>
     </GenericTemplate>
