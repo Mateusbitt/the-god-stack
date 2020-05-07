@@ -11,14 +11,12 @@ const styles = css`
   font-size: ${fontSize};
   display: inline-block;
   box-sizing: border-box;
-  width: 100%;
   padding: 0 1em;
   height: 3em;
   background-color: ${({ transparent, theme }) => transparent ? 'transparent' : theme.colors.text[0]};
   border: 2px solid ${({ invalid, theme }) => invalid ? theme.colors.actions[3] : 'transparent'};
   border-radius: 0px;
-  margin-top: 5px;
-  margin-bottom: 20px;
+  margin: 0 2em;
   outline: none;
   transition: border 250ms ease-out;
 

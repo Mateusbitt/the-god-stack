@@ -25,9 +25,7 @@ const styles = css`
   padding: 0 1em;
   pointer-events: ${({ disabled }) => disabled ? 'none' : 'auto'};
   transition: background-color 250ms ease-out, color 250ms ease-out, border-color 250ms ease-out;
-  width: 200px;
-  margin-top: 5px;
-  margin-bottom: 20px;
+  width: 180px;
   font-weight: 600;
 
   &:hover, &:active {

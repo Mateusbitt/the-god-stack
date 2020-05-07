@@ -4,7 +4,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const StyledCol = styled(GridCol)`
-  text-align:  ${({ textalign }) => textalign || 'initial'};
+  margin-top: ${({ marginauto }) => marginauto ? 'auto' : ''};
+  margin-bottom: ${({ marginauto }) => marginauto ? 'auto' : ''};
+  text-align:  ${({ textalign }) => textalign || ''};
 `
 
 const Col = ({ children, ...props }) => {

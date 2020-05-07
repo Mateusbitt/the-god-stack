@@ -1,10 +1,10 @@
 import React from 'react'
-import { Row as GriRow } from 'react-grid-system'
+import { Row as GridRow } from 'react-grid-system'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const StyledRow = styled(GriRow)`
-  text-align:  ${({ textalign }) => textalign || 'initial'};
+const StyledRow = styled(GridRow)`
+  text-align: ${({ textalign }) => textalign || ''};
   justify-content: ${({ justifycontent }) => justifycontent ? `${justifycontent} !important` : 'flex-start'};
 `
 
