@@ -6,6 +6,7 @@ const genericDesign = {
   },
   sizes: {
     maxWidth: '1100px',
+    headerWidth: '1400px',
   },
 }
 

@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { Header } from 'components'
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 3.75rem;
   box-sizing: border-box;
   min-height: 100vh;
   background-image: ${({ theme }) => `linear-gradient(${theme.colors.background[0]}, ${theme.colors.background[1]}, ${theme.colors.background[2]})`} ;
@@ -16,6 +16,7 @@ const Wrapper = styled.div`
 const Content = styled.section`
   max-width: ${({ theme }) => theme.sizes.maxWidth};
   margin: 0 auto;
+  padding: 3rem 0;
   width: 100%;
   box-sizing: border-box;
 `
@@ -23,6 +24,7 @@ const Content = styled.section`
 const GenericTemplate = ({ children, ...props }) => {
   return (
     <Wrapper {...props}>
+      <Header {...props} />
       <Content {...props}>{children}</Content>
     </Wrapper>
   )
