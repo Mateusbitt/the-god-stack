@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import {
-  Row, Col, Block, Button, Select, Option, Link, Img,
+  Row, Col, Block, Button, Select, Option, Link, Img, Switch
 } from 'components'
 import { usePersistedState } from 'hooks'
 import PropTypes from 'prop-types'
@@ -24,13 +24,19 @@ const StyledSpan = styled.span`
   font-weight: 600;
 `
 
-const Header = ({ t, theme }) => {
+const Header = ({ toggleTheme, theme, t }) => {
   const { i18n } = useTranslation()
   const [lang, setLang] = usePersistedState('language', JSON.parse(localStorage.getItem('language')) || 'enUS')
+  const [actualTheme, setActualTheme] = usePersistedState('theme', JSON.parse(localStorage.getItem('theme')) || 'light')
 
   const changeSelect = (e) => {
     i18n.changeLanguage(e.target.value)
     setLang(e.target.value)
+  }
+
+  const changeTheme = () => {
+    setActualTheme(actualTheme === 'light' ? 'dark' : 'light')
+    toggleTheme()
   }
 
   return (
@@ -64,6 +70,12 @@ const Header = ({ t, theme }) => {
             <Option value="enUS">English</Option>
             <Option value="ptBR">Português</Option>
           </Select>
+
+          <Switch 
+            value={actualTheme === 'light' ? false : true}
+            onClick={() => console.log(changeTheme())}
+          />
+          
           <Button
             type="button"
             onClick={() => console.log('Redirect to login page')}
@@ -79,6 +91,7 @@ const Header = ({ t, theme }) => {
 Header.propTypes = {
   t: PropTypes.func,
   theme: PropTypes.object,
+  toggleTheme: PropTypes.func.isRequired,
 }
 
 export default Header

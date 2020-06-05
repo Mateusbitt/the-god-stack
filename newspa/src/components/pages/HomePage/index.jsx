@@ -12,29 +12,12 @@ const StyledBlock = styled(Block)`
 `
 
 const HomePage = ({ toggleTheme, t, ...props }) => {
-  const [theme, setTheme] = usePersistedState('theme', JSON.parse(localStorage.getItem('theme')) || 'light')
-
-  const changeTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light')
-    toggleTheme()
-  }
-
   return (
-    <GenericTemplate {...props} t={t}>
+    <GenericTemplate {...props} t={t} toggleTheme={toggleTheme}>
       <Block>{t('pages.HomePage.home')}</Block>
       <StyledBlock>
         <Link to="/login">Login</Link>
       </StyledBlock>
-      <StyledBlock>
-        <Button
-          type="button"
-          onClick={() => changeTheme()}
-        >
-          {t('pages.HomePage.changeTheme')}
-        </Button>
-      </StyledBlock>
-
-
       <StyledBlock>
         <Input type="password" />
       </StyledBlock>
