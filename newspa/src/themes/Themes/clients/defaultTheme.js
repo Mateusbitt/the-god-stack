@@ -24,7 +24,7 @@ const darkLight = {
     colors: {
       primary: '#7F7F7F',
       secundary: '#CCCCCC',
-      background: ['#DDDDDD', '#E1E1E7', '#C4A9F2'],
+      background: ['#DDDDDD', '#E1E1E7', '#d6c8ee'],
       text: '#1D223B',
       actions: ['#1890ff', '#52c41a', '#fadb14', '#f5222d'],
     },
