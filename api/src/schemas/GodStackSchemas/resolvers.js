@@ -7,6 +7,8 @@ import MergeUser from './Users/Application/Mutations/MergeUser'
 import ToggleUser from './Users/Application/Mutations/ToggleUser'
 import UserLogin from './Users/Application/Queries/UserLogin'
 import RefreshToken from './Users/Application/Queries/RefreshToken'
+import Movies from './Movies/Application/Queries/Movies'
+import MergeMovie from './Movies/Application/mutations/MergeMovie'
 
 export const resolvers = {
   Query: {
@@ -14,10 +16,12 @@ export const resolvers = {
     Profiles,
     Users,
     UserLogin,
+    Movies,
     RefreshToken,
   },
   Mutation: {
     MergeUser,
+    MergeMovie,
     ToggleUser,
   },
   Date,
